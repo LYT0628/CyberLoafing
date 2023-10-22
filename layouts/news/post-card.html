@@ -1,0 +1,24 @@
+{{/*content view 的作用是，被Taxonomy引用时 不同的页面通过同一个content view显示， 
+  但不同种类的post样式可能是不一样的，于是Hugo把样式委托给每一个section
+  自己去实现，但可以被Hugo使用统一的接口(content view) 调用  */}}
+<li class="post">
+<div class="badge"> 
+ For News
+</div>
+{{/* 封面  */}}
+  {{with (.Resources.GetMatch "cover.*")}}
+    <img alt="{{$.Title}}" 
+        loading="lazy" 
+        src="{{(.Resize "1000x").Permalink}}" />
+  {{end}}
+{{/*  链接  */}}
+  <a href="{{.Permalink}}">
+    <h2>
+      {{.Title}}
+    </h2>
+    <article>
+      {{.Summary}} 
+    </article>
+    <div>Read More</div>
+  </a>
+</li>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  {{ if $.Title }}
+    <title>{{$.Title}}</title> 
+  {{ end }}
+{{/*  css  */}}
+{{ $css := partialCached "index.css.html" $ "nothing" }} 
+<link rel="stylesheet" type="text/css" href="{{$css}}">
+</head>
+
+<body class="body">
+{{/*  头部导航栏  */}}
+{{ block "header" . }}
+  {{ partial "header.html" . }}
+{{ end }}
+{{/*  主体， 默认是post的内容  */}}
+{{ block "body" . }}
+  <main>
+    {{with .Title}}
+      <h1>
+        {{.}}
+      </h1>
+    {{end}}
+    <div class="content">
+      {{.Content}}
+    </div>
+{{ end }}
+
+{{/*  页脚，包括 sitemap和copyright  */}}
+{{ block "footer.html" . }}
+ {{ partial "footer" . }} 
+{{ end }}
+</body>
+</html>

@@ -1,0 +1,8 @@
+{{with site.Menus.main }}
+  <nav class="menubar" >
+    {{range .}}
+    <a class="menu" 
+       href="{{.URL}}" >{{.Name}}</a>
+    {{end}}
+  </nav>
+{{end}}

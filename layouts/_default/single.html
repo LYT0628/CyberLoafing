@@ -1,0 +1,17 @@
+{{ define "body" }}
+{{/*  封面图片   .Resources 拿到Bundle中的资源*/}}
+  {{ $img := .Resources.GetMatch "cover.*"}}
+  {{ if $img }}
+    <img src="{{ ($img.Fill "1920x400").Permalink}}"
+          alt="{{.Title}}"
+          loading="lazy"
+          width="1920" height="400">
+  {{ end }}
+{{/*  post  */}}
+  <main>
+    <h1 class="post-title">{{.Title}}</h1>
+    <div class="post-content">
+      {{.Content}}
+    </div>
+  </main>
+{{ end }}
