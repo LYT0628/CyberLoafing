@@ -1,8 +1,8 @@
 {{define "body"}} 
 <main>
-  <h1>{{.Title | humanize}}</h1> 
-  <p>{{.Content}}</p>
-  
+  <h1 class="display-1">{{.Title | humanize}}</h1> 
+  <p class="display-2">{{.Content}}</p>
+
   {{/*  把子section的标准页面页加进来  */}}
   {{$pages := .RegularPages}}
   {{range .Sections}}
@@ -10,41 +10,25 @@
   {{end}}
     {{/*  按日期倒序排列  */}}
   {{$pages = sort $pages "Date" "desc" }}
-
   {{ $paginator := .Paginate $pages }}
+
+
   {{/*  显示子section  */}}
-  {{if and (eq $paginator.PageNumber 1)
-            (gt (len .Sections) 0) }}
-  <h2>Subsections</h2>
-    <ul class="subsections">
-    {{range .Sections}}
-      <li class="subsection">
-        <a href="{{.Permalink}}">
-          <h3>{{(default 
-          (.File.Path | path.Dir | path.Base) 
-            .Title) | humanize}}</h3>
-          <p>Pages: {{len .Pages}}</p>
-          {{$words:= 0}}
-            {{range .Pages}}
-              {{$words = add $words .WordCount}}
-            {{end}}
-          <p>Words: {{$words}}</p>
-        </a>
-      </li>
-    {{end}}{{/*  range  */}}
-    </ul>
-  {{ end }}{{/*  if  */}}
+{{if and (eq $paginator.PageNumber 1)
+          (gt (len .Sections) 0) }}
+  <h2 class="h2">Subsections</h2>
+  {{range .Sections}}
+        {{ partial "template/bs-card-nf.html" . }}
+  {{end}}{{/*  range  */}}
+{{ end }}{{/*  if  */}}
 
 <h2>Posts</h2>
 {{/*  pagination  */}}
-  {{with $paginator.Pages}}
-    <ul class="posts">
+{{with $paginator.Pages}}
       {{ range .}}
       {{ partial "template/bs-card.html" . }}
-      {{/*  {{.Render "post-card"}}  */}}
       {{ end }}
-    </ul>
-  {{end}}
+{{end}}
 {{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
 </main>
 {{end}}

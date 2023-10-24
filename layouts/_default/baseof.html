@@ -15,11 +15,11 @@
 
 <body class="body">
 
-{{/*  头部导航栏  */}}
+
 {{ block "header" . }}
   {{ partial "template/bs-header.html" . }}
 {{ end }}
-{{/*  主体， 默认是post的内容  */}}
+
 {{ block "body" . }}
   <main>
     {{with .Title}}
