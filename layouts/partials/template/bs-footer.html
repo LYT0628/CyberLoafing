@@ -1,0 +1,26 @@
+<footer class="bg-dark text-light text-center text-lg-start">
+
+  <div class="container p-4">
+    <div class="col-md-9 mb-4">
+      <h5 class="text-uppercase">FooterContent</h5 >
+        <p> Lorem ipsum dolor sit </p >
+  </div>
+
+  <div class="col-md-3 mb-4">
+    <h2 class="text-uppercase mb-0">Links</h2 >
+      <ul  class="list-unstyled">
+{{ with site.Menus.footer }}
+  {{ range . }}
+      <li>
+        <a a href="{{.URL}}" class="text-light">{{.Name}}</a >
+      </li >
+  {{ end }}
+{{ end }}
+      </ul>
+  </div>
+
+<div> 
+    <p class="copyright" >Copyright © 2004-2023 lyt0628 | 摸鱼天尊</p>
+</div>
+  </div>
+</footer>

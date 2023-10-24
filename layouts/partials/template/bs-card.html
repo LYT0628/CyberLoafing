@@ -1,0 +1,19 @@
+
+<div class="card">
+  <div class="card-header p-0">
+{{with (.Resources.GetMatch "cover.*")}}
+  <img src="{{(.Resize "1000x").Permalink}}"
+      class="card-img-top w-25" loading="lazy"  alt="{{$.Title}}">
+{{end}}
+  </div >
+
+  <div class="card-body p-2">
+    <h2 class="card-title">{{.Title}}</h2 >
+    <p class="card-text">{{.Summary}}</p >
+  </div >
+
+  <div class="card-footer">
+  <a href="{{.Permalink}}" class="btn btn-primary">Read More</a >
+  </div >
+<hr/>
+</div >
