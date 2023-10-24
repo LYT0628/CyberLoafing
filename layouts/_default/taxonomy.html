@@ -14,7 +14,7 @@
   <h2>Subsections</h2>
     <ul class="subsections">
     {{range .Sections}}
-      {{partialCached "subsection" . .Permalink}}
+      {{partialCached "template/subsection" . .Permalink}}
     {{end}}
     </ul>
   <h2>Posts</h2>

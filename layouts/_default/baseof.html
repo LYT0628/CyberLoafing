@@ -2,18 +2,21 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{ if $.Title }}
     <title>{{$.Title}}</title> 
   {{ end }}
 {{/*  css  */}}
-{{ $css := partialCached "index.css.html" $ "nothing" }} 
-<link rel="stylesheet" type="text/css" href="{{$css}}">
+{{/*  {{ $css := partialCached "index.css.html" $ "nothing" }}   */}}
+{{/*  <link rel="stylesheet" type="text/css" href="{{$css}}">  */}}
+{{ partial "lib/index.html" . }}
+{{ partial "assets/style.html" . }}
 </head>
 
 <body class="body">
 {{/*  头部导航栏  */}}
 {{ block "header" . }}
-  {{ partial "header.html" . }}
+  {{ partial "template/header.html" . }}
 {{ end }}
 {{/*  主体， 默认是post的内容  */}}
 {{ block "body" . }}
@@ -30,7 +33,10 @@
 
 {{/*  页脚，包括 sitemap和copyright  */}}
 {{ block "footer.html" . }}
- {{ partial "footer" . }} 
+ {{ partial "template/footer" . }} 
 {{ end }}
+
+
+{{ partial "assets/js.html" . }}
 </body>
 </html>

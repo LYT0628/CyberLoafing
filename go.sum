@@ -1,4 +1,2 @@
 github.com/jquery/jquery v0.0.0-20231016165454-1ad66aeb6d7d h1:+xzc+GRzuBe0H0H53Pjj9ivFqJ63zCfZBn4jlt7lc5k=
 github.com/jquery/jquery v0.0.0-20231016165454-1ad66aeb6d7d/go.mod h1:awH0v5ImrD4lpSNYgzEFDJGCfWp3Y+4uYc2qFZDen9w=
-github.com/necolas/normalize.css v2.1.3+incompatible h1:tZYmptM/WDBKUqgh0rD8HSafGiK417jdyT+XJ6c+zjU=
-github.com/necolas/normalize.css v2.1.3+incompatible/go.mod h1:892T+m70k5cQA34rKLasOW7c3/cEHdn86mfwm8Xlxic=

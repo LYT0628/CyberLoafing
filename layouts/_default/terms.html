@@ -7,7 +7,7 @@
  {{with .Data.Terms.Alphabetical}} 
  <ul class="section">
  {{ range .}} 
- {{partialCached "subsection" .Page .Page.Permalink}} 
+ {{partialCached "template/subsection" .Page .Page.Permalink}} 
  {{ end }} 
  </ul>
  {{end}} 
