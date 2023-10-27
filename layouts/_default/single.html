@@ -5,13 +5,13 @@
     <img src="{{ ($img.Fill "1920x400").Permalink}}"
           alt="{{.Title}}"
           loading="lazy"
-          width="1920" height="400">
+          class="img-thumbnail thumbnail">
   {{ end }}
 {{/*  post  */}}
   <main>
     <h1 class="post-title">{{.Title}}</h1>
     <div class="post-content">
-      {{.Content}}
+      {{.Content | markdownify}}
     </div>
   </main>
 {{ end }}

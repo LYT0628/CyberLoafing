@@ -2,8 +2,10 @@
 <div class="card">
   <div class="card-header p-0">
 {{with (.Resources.GetMatch "cover.*")}}
-  <img src="{{(.Resize "1000x").Permalink}}"
-      class="card-img-top w-25" loading="lazy"  alt="{{$.Title}}">
+  <img src="{{(.Fill "1920x400").Permalink}}"
+      class="card-img-top " 
+      loading="lazy"
+      alt="{{$.Title}}">
 {{end}}
   </div >
 

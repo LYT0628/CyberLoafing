@@ -8,34 +8,31 @@
           loading="lazy"
           width="1920" height="400">
   {{ end }}
-<div class="blog-content">
-  <main>
-      {{with .Title}}
-        <h1>
-          {{.}}
-        </h1>
-      {{end}}
-      <div class="content">
-        {{.Content}}
-      </div>
-    </main>
-  <aside class="blog-aside">
 
-    <section>
+{{with .Title}}
+  <h1>
+    {{.}}
+  </h1>
+{{end}}
+
+<div class="blog-info">
+    {{/*  <section>
       <h2>Information</h2>
       <p>{{.Summary}}</p>
-    </section>
+    </section>  */}}
     <section>
-      <h2>Reading Time</h2>
+      <p class="p2">Reading Time</p>
       <p>{{ .ReadingTime}}</p>
     </section>
     <section>
-      <h2>Word Count</h2>
-      <p>?{{.FuzzyWordCount}}</p>
+      <p class="p2">Word Count</p>
+      <p>{{.FuzzyWordCount}}</p>
     </section>
-    <section>
-      <h2>tags</h2>
-      {{with .Params.tags }}
+
+
+{{with .Params.tags }}
+<section>
+        <h2>tags</h2>
         {{ range . }}
           <p>
             <a href="{{"/tags/" | relLangURL}} {{- . |urlize }}" >
@@ -43,9 +40,19 @@
             </a>
           </p>
         {{ end }}
-      {{end}}
-    </section>
-  </aside>
+</section>
+{{end}}
+<hr/>
+</div>
+<div class="blog-content">
+  <main>
+      <div class="content">
+        {{.Content}}
+      </div>
+  </main>
+</div>
+    
+
 
   {{/*  相关页面  */}}
   {{with site.RegularPages.Related .}} 
@@ -54,7 +61,8 @@
     <h2>Related Pages</h2>
     <ul class="posts">
     {{range first 5 .}} 
-    {{.Render "post-card" }} 
+    {{/*  {{.Render "post-card" }}   */}}
+    {{ partial "template/bs-card" . }}
     {{end}} 
     </ul>
   </div>

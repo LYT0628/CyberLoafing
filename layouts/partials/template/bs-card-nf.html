@@ -1,10 +1,12 @@
 <a href="{{.Permalink}}">
   <div class="card">
     <div class="card-header p-0">
-{{with (.Resources.GetMatch "cover.*")}}
-  <img src="{{(.Resize "1000x").Permalink}}"
-      class="card-img-top w-25" loading="lazy"  alt="{{$.Title}}">
-{{end}}
+      {{with (.Resources.GetMatch "cover.*")}}
+        <img src="{{(.Fill "1920x400").Permalink}}"
+            class="card-img-top " 
+            loading="lazy"
+            alt="{{$.Title}}">
+      {{end}}
     </div >
 
     <div class="card-body p-2">
@@ -12,7 +14,7 @@
         (.File.Path | path.Dir | path.Base) 
           .Title) | humanize}}
       </h2 >
-      <p class="card-text">          
+      <p class="card-text">         
         <p>Pages: {{len .Pages}}</p>
           {{$words:= 0}}
         {{range .Pages}}
