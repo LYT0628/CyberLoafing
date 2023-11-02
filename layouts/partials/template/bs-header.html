@@ -1,6 +1,10 @@
-<nav nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{ site.BaseURL | absLangURL }}">
+<header class="navbar navbar-expand-lg bd-navbar sticky-top">
+
+
+<nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
+
+    <a class="navbar-brand p-0 me-0 me-lg-2" 
+      href="{{ site.BaseURL | absLangURL }}">
 
 {{/*  optional for src   */}}
 {{/*  {{ if .Param  "logo"}}
@@ -16,29 +20,38 @@ failed to transform "logo.svg" (): minifier does not exist for mimetype*/}}
 {{ $logo := resources.GetMatch "image/logo.svg.tpl" 
 | resources.ExecuteAsTemplate "logo.svg" "nothing" }}
       src="{{site.Params.logo | default $logo.Permalink | relLangURL  }}"
-
-      class="card-img-top img-circle"
-      alt="Home" width="125" height="60">
+      class="d-block my-1"
+      alt="Home" width="40" height="32">
     </a >
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+    <button class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarSupportedContent">
     <span class="navbar-toggler-icon"></span >
     </button >
-
-    <div class="collapse navbar-collapse"
+    <div class="offcanvas-lg offcanvas-end flex-grow-1"
+            tabindex="-1" data-bs-scroll="true" 
+            aria-labelledby="navbarSupportedContentbarOffcanvasLabel"
         id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div class="offcanvas-body p-4 pt-0 p-lg-0">
+            <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
 
 {{with site.Menus.main }}
 {{range .}}
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page"
-          href="{{.URL}}">{{.Name}}</a >
-        </li >
+                          <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" 
+                              aria-current="page"
+                              href="{{.URL}}">{{.Name}}</a >
+                          </li >
 {{end}}
 {{end}}
-      </ul>
+                        </ul>
+      </div>
+      
     </div>
-</div>
 
 </nav>
+
+
+
+</header>
