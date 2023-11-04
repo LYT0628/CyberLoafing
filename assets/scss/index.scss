@@ -1,0 +1,11 @@
+// 不能使用url函数
+@import './reset.scss';
+@import './hero.scss';
+@import './single.scss';
+
+
+
+.body {
+  display: grid;
+  grid-row: auto 1fr auto;
+}

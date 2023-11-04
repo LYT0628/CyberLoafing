@@ -1,16 +1,8 @@
 
-<div class="card">
-  <div class="card-header p-0">
-{{with (.Resources.GetMatch "cover.*")}}
-  <img src="{{(.Fill "1920x400").Permalink}}"
-      class="card-img-top " 
-      loading="lazy"
-      alt="{{$.Title}}">
-{{end}}
-  </div >
+<div class="card col-sm-6 col-md-3">
 
   <div class="card-body p-2">
-    <h2 class="card-title">{{.Title}}</h2 >
+    <h2 class="card-title p-0 mb-md-100">{{ partial "util/title.html" .}}</h2 >
     <p class="card-text">{{.Summary}}</p >
   </div >
 

@@ -1,34 +1,25 @@
 {{define "body"}} 
 <main>
-  <h1 class="display-1">{{.Title | humanize}}</h1> 
   <p class="display-2">{{.Content}}</p>
 
-  {{/*  把子section的标准页面页加进来  */}}
-  {{$pages := .RegularPages}}
-  {{range .Sections}}
-    {{$pages = append $pages .RegularPages}}
-  {{end}}
-    {{/*  按日期倒序排列  */}}
-  {{$pages = sort $pages "Date" "desc" }}
-  {{ $paginator := .Paginate $pages }}
-
+{{ $paginator := partial "util/pages.html" . }}
 
   {{/*  显示子section  */}}
 {{if and (eq $paginator.PageNumber 1)
           (gt (len .Sections) 0) }}
-  <h2 class="h2">Subsections</h2>
-  {{range .Sections}}
-        {{ partial "template/bs-card-nf.html" . }}
-  {{end}}{{/*  range  */}}
-{{ end }}{{/*  if  */}}
+  <h2 class="h2 text-center">Subsections</h2>
+  {{ with .Sections }}
+    {{ partial "components/bs-cards.html" . }}
+  {{ end }}
+{{ end }}
 
-<h2>Posts</h2>
-{{/*  pagination  */}}
+<h2 class="text-center">Posts</h2>
+
+{{/*  pages  */}}
 {{with $paginator.Pages}}
-      {{ range .}}
-      {{ partial "template/bs-card.html" . }}
-      {{ end }}
+{{ partial "components/bs-cards.html" . }}
 {{end}}
+
 {{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
 </main>
 {{end}}

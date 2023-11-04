@@ -2,7 +2,3 @@ module:
   hugoVersion:
     min: 0.19.2
   imports:
-    - path: github.com/jquery/jquery
-      mounts:
-        - source: src/jquery.js
-          target: assets/js/lib/jquery.js

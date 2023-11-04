@@ -1,17 +1,29 @@
 {{ define "body" }}
-{{/*  封面图片   .Resources 拿到Bundle中的资源*/}}
-  {{ $img := .Resources.GetMatch "cover.*"}}
-  {{ if $img }}
-    <img src="{{ ($img.Fill "1920x400").Permalink}}"
-          alt="{{.Title}}"
-          loading="lazy"
-          class="img-thumbnail thumbnail">
-  {{ end }}
+
+  {{ partial "template/bs-cover.html" . }}
+
 {{/*  post  */}}
   <main>
-    <h1 class="post-title">{{.Title}}</h1>
-    <div class="post-content">
-      {{.Content | markdownify}}
+    <div class="container">
+      <h1 class="single-title" >{{.Title}} </h1>
+      {{ partial "template/content-info.html" . }}
+
+      <div class="row">
+        <div class="col-sm-12 col-md-10">
+          {{.Content | markdownify}}
+        </div>
+
+        <div class="col-sm-0 col-md-2">
+
+          </section>
+      
+{{/*  相关页面  */}}
+{{ partial "template/related-pages.html" . }}     
+        </div>
+      </div>
+
     </div>
+
   </main>
+  
 {{ end }}

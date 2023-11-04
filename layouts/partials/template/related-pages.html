@@ -1,0 +1,12 @@
+{{/*  相关页面  */}}
+{{with site.RegularPages.Related .}} 
+<div id="related">
+  <h4 class="h4">Related Pages</h4>
+  <ul class="unstyled">
+{{with first 5 .}} 
+  {{/*  {{.Render "post-card" }}   */}}
+  {{ partial "components/bs-cards.html" . }}
+{{end}} 
+  </ul>
+</div>
+{{end}} 

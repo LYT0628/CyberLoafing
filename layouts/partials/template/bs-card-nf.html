@@ -10,10 +10,7 @@
     </div >
 
     <div class="card-body p-2">
-      <h2 class="card-title">{{(default 
-        (.File.Path | path.Dir | path.Base) 
-          .Title) | humanize}}
-      </h2 >
+      <h2 class="card-title">{{ partial "util/title.html" .}}</h2 >
       <p class="card-text">         
         <p>Pages: {{len .Pages}}</p>
           {{$words:= 0}}

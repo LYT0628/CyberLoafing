@@ -1,3 +1,3 @@
 
+import './search.js'
 
-import './addon/main.js'
