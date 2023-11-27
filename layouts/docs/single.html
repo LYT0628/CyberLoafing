@@ -51,8 +51,6 @@
       </div>
   </main>
 </div>
-    
-
 
   {{/*  相关页面  */}}
   {{with site.RegularPages.Related .}} 
@@ -62,7 +60,7 @@
     <ul class="posts">
     {{range first 5 .}} 
     {{/*  {{.Render "post-card" }}   */}}
-    {{ partial "template/bs-card" . }}
+    {{ partial "comps/_bs-card" . }}
     {{end}} 
     </ul>
   </div>

@@ -1,0 +1,21 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <ellipse fill="#000000" stroke="#000" stroke-width="0" opacity="NaN" cx="593" cy="240" id="svg_3"/>
+  <ellipse fill="#000000" stroke="#000" stroke-width="0" opacity="NaN" cx="600" cy="254" id="svg_4"/>
+  <ellipse fill="#000000" stroke="#000" stroke-width="0" opacity="NaN" cx="500" cy="262" id="svg_5"/>
+  <ellipse fill="#000000" stroke="#000" stroke-width="0" opacity="NaN" cx="653" cy="228" id="svg_6"/>
+  <ellipse fill="#000000" stroke="#000" stroke-width="0" opacity="NaN" cx="544" cy="192" id="svg_7"/>
+  <ellipse fill="#000000" stroke="#000" stroke-width="0" opacity="NaN" cx="236" cy="192" id="svg_8"/>
+  <ellipse fill="#00ff7f" stroke="#000" stroke-width="0" opacity="NaN" cx="604" cy="252" id="svg_9"/>
+  <ellipse fill="#00ff7f" stroke="#000" stroke-width="0" opacity="NaN" cx="648" cy="300" id="svg_10"/>
+  <ellipse fill="#00ff7f" stroke="#000" stroke-width="0" opacity="NaN" cx="651" cy="258" id="svg_11"/>
+  <path fill="#00ff7f" stroke="#000" stroke-width="0" d="m552.23,267.41l0.31929,-0.63857l0.85143,0l0.31929,0.63857l-0.31929,0.63857l-0.85143,0l-0.31929,-0.63857z" id="svg_12"/>
+  <path fill="#00ff7f" stroke="#ffffff" stroke-width="0" d="m480.59,293.265l0.31929,-0.63857l0.85143,0l0.31929,0.63857l-0.31929,0.63857l-0.85143,0l-0.31929,-0.63857z" id="svg_13"/>
+  <path stroke="#000" id="svg_2" d="m274.28701,269.34443l17.14286,-25.00001l45.71428,0l17.14285,25.00001l-17.14285,25.00001l-45.71428,0l-17.14286,-25.00001z" fill="#00ff7f"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" stroke-width="0" id="svg_15" y="278.4" x="293.6" stroke="#000" fill="#000000">LYT</text>
+  <path id="svg_16" d="m287.32162,223.47721c1.99919,-13.45439 5.60363,-24.93773 8.67001,-36.33416c3.56708,7.31351 6.64884,23.40309 9.32999,34.60914c-2.39141,12.96178 -5.83379,24.76643 -8.93492,36.39086c-3.34308,-10.63526 -6.20195,-22.78626 -9.06508,-34.66584l0,0z" stroke="#000" fill="#00ff7f"/>
+  <path id="svg_26" d="m318.78002,222.29716l-8.62981,0l-7.05964,3.05282l0,3.73181l21.31057,9.21538l15.68946,-6.78521l-21.31057,-9.21479zm-10.54197,3.54049c-0.84005,-0.36326 -0.84005,-0.95188 0,-1.31455c0.84005,-0.36326 2.20122,-0.36326 3.04127,0c0.8414,0.36385 0.84005,0.95129 0,1.31514c-0.84005,0.36326 -2.20122,0.36326 -3.04127,-0.00059z" stroke-width="0" stroke="#000" fill="#ffff00"/>
+ </g>
+
+</svg>

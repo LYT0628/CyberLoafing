@@ -7,7 +7,8 @@
     <title>{{$.Title}}</title> 
   {{ end }}
 
-{{ partial "lib/index-css.html" . }}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet" >
 {{ partial "util/build-scss.html" "scss/index.scss" }}
 </head>
 
@@ -30,11 +31,12 @@
 {{ end }}
 
 
-{{ block "footer.html" . }}
- {{ partial "template/bs-footer.html" . }} 
+{{ block "footer" . }}
+ {{ partial "comps/bs-footer.html" . }} 
 {{ end }}
 
-{{ partial "lib/index-js.html" . }}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 {{ partial "util/build-js.html" "js/index.js" }}
 </body>
 </html> 
