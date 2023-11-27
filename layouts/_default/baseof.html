@@ -6,17 +6,14 @@
   {{ if $.Title }}
     <title>{{$.Title}}</title> 
   {{ end }}
-{{/*  css  */}}
-{{/*  {{ $css := partialCached "index.css.html" $ "nothing" }}   */}}
-{{/*  <link rel="stylesheet" type="text/css" href="{{$css}}">  */}}
+
 {{ partial "lib/index-css.html" . }}
-{{ partial "assets/style.html" . }}
+{{ partial "util/build-scss.html" "scss/index.scss" }}
 </head>
 
 <body>
-
 {{ block "header" . }}
-  {{ partial "template/bs-header.html" . }}
+  {{ partial "comps/bs-header.html" . }}
 {{ end }}
 
 {{ block "body" . }}
@@ -29,14 +26,15 @@
     <div class="content">
       {{.Content}}
     </div>
+  </main>
 {{ end }}
 
-{{/*  页脚，包括 sitemap和copyright  */}}
+
 {{ block "footer.html" . }}
  {{ partial "template/bs-footer.html" . }} 
 {{ end }}
 
 {{ partial "lib/index-js.html" . }}
-{{ partial "assets/js.html" . }}
+{{ partial "util/build-js.html" "js/index.js" }}
 </body>
-</html>
+</html> 

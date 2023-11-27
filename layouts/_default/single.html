@@ -5,20 +5,22 @@
 {{/*  post  */}}
   <main>
     <div class="container">
-      <h1 class="single-title" >{{.Title}} </h1>
-      {{ partial "template/content-info.html" . }}
-
+      <h1 class="text-center" >{{.Title}} </h1>
       <div class="row">
-        <div class="col-sm-12 col-md-10">
-          {{.Content | markdownify}}
-        </div>
-
-        <div class="col-sm-0 col-md-2">
-
+        <div class="col-md-3">
+          <section>
+            <p class="p2">Reading Time</p>
+            <p class="p4">{{ .ReadingTime}} minutes</p>
           </section>
-      
-{{/*  相关页面  */}}
-{{ partial "template/related-pages.html" . }}     
+          <section>
+            <p class="p2">Word Count</p>
+            <p class="p4">{{.FuzzyWordCount}}</p>
+          <section>
+          <hr/>
+          </section>
+        </div>
+        <div class="col-sm-12 col-md-9">
+          {{.Content | markdownify}}
         </div>
       </div>
 

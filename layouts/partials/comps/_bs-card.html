@@ -1,0 +1,40 @@
+{{/*  
+card
+  card-header
+    card-title
+  card-body
+    cover
+    card-text
+  card-footer
+    btn
+*/}}
+<div class="row border-top py-5  gx-md-100 m-auto text-center">
+<div class="col-sm-3 col-md-3 text-muted">
+  {{ time.Format " Jan 2, 2006" .Date }}
+</div>
+<div class="col-sm-9 col-md-9">
+  <div class="card my-1 col-sm-12">
+    <div class="card-header">
+      <div class="card-title">
+        {{ partial "util/title.html" . }}
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        {{with (.Resources.GetMatch "cover.*")}}
+          <img src="{{(.Fill "1920x400").Permalink}}"
+              class="img-fluid mx-auto" 
+              loading="lazy"
+              alt="{{.Title}}">
+        {{end}}
+      </div>
+      <div class="card-text">
+        {{ partial "util/description.html" . }}
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="{{.Permalink}}" class="btn btn-outline-primary">Read More</a >
+    </div>
+  </div>
+</div>
+</div>

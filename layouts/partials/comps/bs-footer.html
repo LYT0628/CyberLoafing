@@ -1,0 +1,89 @@
+{{ $base_url := site.BaseURL | relLangURL }}
+{{ $author := .Param "author"}}
+{{ $title := site.Title }}
+{{ $svg := "M18.9,10.9h-6v-6c0-0.6-0.4-1-1-1s-1,0.4-1,1v6h-6c-0.6,0-1,0.4-1,1s0.4,1,1,1h6v6c0,0.6,0.4,1,1,1s1-0.4,1-1v-6h6c0.6,0,1-0.4,1-1S19.5,10.9,18.9,10.9z"}}
+{{ $logo := resources.GetMatch "image/logo.svg.tpl" 
+| resources.ExecuteAsTemplate "logo.svg" "nothing" }}
+{{ $logo = site.Params.logo | default $logo.Permalink | relLangURL}}
+{{ $siteInfo := .Param "siteInfo" | markdownify}}
+{{ $license := .Param "license" | markdownify}}
+{{ $theme := "website is powered by [CyberLoafing](http://github.com/LYT0628/CyberLoafing) and [Hugo](https://gohugo.io)" | markdownify}}
+
+<footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary ">
+  <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
+    <div class="row">
+      <div class="col-lg-3 mb-3">
+        <a class="d-inline-flex align-items-center mb-2 
+            text-body-emphasis text-decoration-none"
+            href="{{$base_url}}"
+            aria-label="{{$author}}">
+          <svg class="d-block me-2 " xmlns="http://www.w3.org/2000/svg"
+              width="40" height="32" viewBox="0 0 118 94" role="img">
+              <title>{{$title}}</title>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="{{$svg}}" fill="currentColor">
+              </path>
+          </svg>
+          {{/*  <img src="{{$logo}}" alt="{{$author}}"
+              class="img-fluid mt-3 mx-auto">  */}}
+          <span class="fs-5">{{$author}}</span>
+        </a>
+        
+        <ul class="list-unstyled small">
+          <li class="mb-2">{{$siteInfo}}</li>
+          <li class="mb-2">{{$license}}</li>
+          <li class="mb-2">{{$theme}}</li>
+        </ul>
+
+      </div>
+
+      <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+        <h5>Links</h5 >
+          <ul  class="list-unstyled">
+{{ with site.Menus.footer }}
+{{ range . }}
+          <li>
+            <a class="mb-2"  href="{{.URL}}">{{.Name}}</a >
+          </li >
+{{ end }}
+{{ end }}
+          </ul>
+        </div>
+
+{{with .Param "footerTopic"}}
+{{ range . }} 
+{{ range . }}
+      <div class="col-6 col-lg-2 mb-3">
+        <h5>{{ .Name }}</h5 >
+          <ul  class="list-unstyled">
+{{ range .Items }}
+            <li>
+              <a class="mb-2"  href="{{.URL | relLangURL }}">{{.Name}}</a >
+            </li >
+{{ end }}
+          </ul>
+      </div>
+{{end}}
+{{end}}
+{{end}}
+
+
+
+    </div>
+
+
+<div>
+    <p class="text-center" >
+      {{/*  {{site.Params.copyright }}  */}}
+      {{.Param "copyright" | markdownify }}
+    </p>
+
+    {{ if site.Param "startTime" }} 
+      {{ partial "comps/bs-duration.html"  (dict "startTime" (site.Param "startTime")
+      "format" "摸鱼天尊已持续运行: **%.0f小时**") }}
+    {{end}}            
+
+
+</div>
+  </div>
+</footer> 

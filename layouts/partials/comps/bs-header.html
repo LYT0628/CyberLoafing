@@ -1,0 +1,36 @@
+{{ $base_url :=  site.BaseURL | absLangURL}}
+{{ $logo := resources.GetMatch "image/logo.svg.tpl" 
+| resources.ExecuteAsTemplate "logo.svg" "nothing" }}
+{{ $logo_url := site.Params.logo | default $logo.Permalink | relLangURL}}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid  my-1 ml-2">
+    <a class="navbar-brand " href="{{ $base_url }}">
+    <img src="{{$logo_url}}"
+          alt="Home" width="40" height="32">
+    </a >
+
+    <button class="navbar-toggler"  type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav">
+        {{with site.Menus.main }}
+        {{range .}}
+                    <li class="nav-item ">
+                    <a class="nav-link" 
+                          aria-current="page"
+                          href="{{.URL}}">{{.Name}}</a >
+                          {{ partial "comps/_bs-submenu.html" . }}
+                    </li >
+        {{end}}
+        {{end}}
+      </ul>
+    </div>
+
+  </div>
+</nav>
+

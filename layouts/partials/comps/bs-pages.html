@@ -1,0 +1,5 @@
+{{ $paginator := partial "util/pages.html" . }}
+{{/*  pages  */}}
+{{with $paginator.Pages}}
+{{ partial "comps/bs-cards.html" . }}
+{{end}}

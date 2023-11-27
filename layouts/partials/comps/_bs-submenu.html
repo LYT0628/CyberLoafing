@@ -1,0 +1,11 @@
+{{ if .HasChildren }}
+<ul class="">
+  {{ range .Children }}
+      <li class="nav-item ">
+        <a class="nav-link" href="{{.URL}}">{{.Name}}</a>
+        {{ partial "comps/_bs-submenu.html" . }}
+      </li>
+  {{ end }}
+</ul>
+
+{{ end }}

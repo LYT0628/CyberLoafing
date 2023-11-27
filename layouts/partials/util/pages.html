@@ -1,9 +1,10 @@
-{{/*  把子section的标准页面页加进来  */}}
+{{/*  content:  a list page  */}}
+
 {{$pages := .RegularPages}}
 {{range .Sections}}
   {{$pages = append $pages .RegularPages}}
 {{end}}
-  {{/*  按日期倒序排列  */}}
+
 {{$pages = sort $pages "Date" "desc" }}
 {{ $paginator := .Paginate $pages }}
 {{return $paginator}}
