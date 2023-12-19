@@ -1,4 +1,4 @@
-{{ $paginator := partial "util/pages.html" . }}
+{{ $paginator := partial "hugolib/paginator.html" . }}
 {{/*  pages  */}}
 {{with $paginator.Pages}}
 {{ partial "comps/bs-cards.html" . }}

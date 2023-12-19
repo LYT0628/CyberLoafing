@@ -1,5 +1,0 @@
-{{ $css := resources.GetMatch . 
-            | resources.ToCSS  
-            | resources.ExecuteAsTemplate (print . ".css") "nothing"
-            | minify}} 
-<link rel="stylesheet" type="text/css" href="{{$css.Permalink}}">

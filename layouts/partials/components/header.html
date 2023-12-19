@@ -1,0 +1,16 @@
+{{/*    */}}
+
+{{ $logo_link := $.logo_link | default site.BaseURL | absLangURL}}
+
+{{ $default_logo := partial "hugolib/get_tpl.html" "image/logo.svg.tpl" }}
+{{ $logo_url := $.logo_url | default $default_logo.Permalink | relLangURL}}
+
+<nav>
+  <div>
+    <a href="{{ $logo_link }}">
+      <img src="{{$logo_url}}" alt="Home" width="40" height="32">
+    </a >
+    {{ partial "components/menu.html" (dict "menu" site.Menus.main)  }}
+
+  </div>
+</nav>

@@ -1,0 +1,6 @@
+{{ $logo_url := $ }}
+
+{{ $default_logo := partial "hugolib/get_tpl.html" "image/logo.svg.tpl" }}
+{{ $logo_default := $logo_url | default $default_logo.Permalink | relLangURL}}
+
+{{ return $logo_default }}

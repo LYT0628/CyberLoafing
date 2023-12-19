@@ -1,0 +1,29 @@
+{{ $logo_link := $.logo_link | default site.BaseURL | absLangURL}}
+{{ $logo_url := partial "default/logo_default" $.logo_url }}
+
+
+
+<footer >
+  <div >
+    <div >
+      <div >
+        <a  href="{{$logo_link}}">
+          <img  src="{{$logo_url}}" style="width:72px;height:72px;">
+        </a>
+      </div>
+{{ partial "components/menu.html" (dict "menu" site.Menus.footer) }}
+
+
+{{ partial "components/topics.html" . }}
+
+    </div>
+
+<div>
+    <p >
+      {{site.Params.copyright | markdownify }}
+    </p>
+      {{ partial "components/moyu_time.html" . }}
+
+</div>
+  </div>
+</footer> 

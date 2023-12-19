@@ -1,8 +1,0 @@
-
-
-{{$t1 := time.AsTime .startTime}}
-{{$duration := (time.Now).Sub $t1}}
-<p class="text-center">{{(printf .format 
-              $duration.Hours)
-              | markdownify}}
-</p>

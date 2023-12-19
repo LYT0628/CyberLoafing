@@ -1,0 +1,5 @@
+{{ if site.Param "startTime" }} 
+{{ partial "hugolib/duration.html"  
+        (dict "start_time" (site.Param "startTime")
+              "format" "摸鱼天尊已持续运行: **%.0f小时**") }}
+{{end}} 

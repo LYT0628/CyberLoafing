@@ -2,3 +2,5 @@ module:
   hugoVersion:
     min: 0.19.2
   imports:
+    - path: github.com/LYT0628/hugolib
+    - path: github.com/hugoinaction/hugo-debug-utils

@@ -1,0 +1,10 @@
+{{ if $.HasChildren }}
+  <ul >
+{{ range $.Children }}
+      <li>
+        <a  href="{{.URL}}">{{.Name}}</a>
+        {{ partial "components/submenu.html" . }}
+      </li>
+{{ end }}
+  </ul>
+{{ end }}

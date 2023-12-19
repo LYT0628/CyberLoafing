@@ -1,0 +1,26 @@
+{
+  "name": "cyberloafing",
+  "version": "0.0.2",
+  "description": "None",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"hello\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LYT0628/CyberLoafing.git"
+  },
+  "keywords": [
+    "hugo",
+    "theme"
+  ],
+  "author": "LYT0628",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/LYT0628/CyberLoafing/issues"
+  },
+  "homepage": "https://github.com/LYT0628/CyberLoafing#readme",
+  "devDependencies": {
+    "fuse.js": "^6.6.2"
+  }
+}

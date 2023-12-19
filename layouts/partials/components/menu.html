@@ -1,0 +1,15 @@
+{{ $menu := $.menu }}
+{{ $button := $.button }}
+
+<div>
+  <ul>
+{{with $menu }}
+{{range .}}
+        <li >
+          <a href="{{.URL}}">{{.Name}}</a >
+                {{ partial "components/submenu.html" . }}
+        </li >
+{{end}}
+{{end}}
+  </ul>
+</div>

@@ -1,4 +1,0 @@
-
-
-{{ $title := .Title | default  (.File.Path | path.Dir | path.Base)  | humanize}}
-{{return $title}}

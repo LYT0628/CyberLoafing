@@ -1,42 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{ if $.Title }}
-    <title>{{$.Title}}</title> 
-  {{ end }}
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet" >
-{{ partial "util/build-scss.html" "scss/index.scss" }}
+ {{ partial "hugolib/meta.html" (dict "title" "CyberLoafing") }}
+ {{ partial "hugolib/bootstrap_css.html" "5.3.2" }}
 </head>
 
 <body>
 {{ block "header" . }}
-  {{ partial "comps/bs-header.html" . }}
+  {{ partial "components/header.html" (dict "logo_url" site.Params.logo) }}
 {{ end }}
 
-{{ block "body" . }}
-  <main>
-    {{with .Title}}
-      <h1>
-        {{.}}
-      </h1>
-    {{end}}
-    <div class="content">
-      {{.Content}}
-    </div>
-  </main>
-{{ end }}
+{{ block "body" . }}{{ end }}
 
 
 {{ block "footer" . }}
- {{ partial "comps/bs-footer.html" . }} 
+ {{ partial "components/footer.html" dict }} 
+{{ end }}
+{{ if not hugo.IsProduction }}
+  {{ partial "debug/debug.html" (dict "context" .)}}
+  {{ partial "console" .Params }}
 {{ end }}
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-{{ partial "util/build-js.html" "js/index.js" }}
+{{ partial "hugolib/bootstrap_js" "5.3.2" }}
+{{ partial "hugolib/jquery" "3.7.0" }}
 </body>
 </html> 

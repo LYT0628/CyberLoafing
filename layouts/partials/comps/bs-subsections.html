@@ -1,10 +1,10 @@
-{{ $paginator := partial "util/pages.html" . }}
+{{ $paginator := partial "hugolib/paginator.html" . }}
 
   {{/*  显示子section  */}}
 {{if and (eq $paginator.PageNumber 1)
           (gt (len .Sections) 0) }}
   {{/*  <h2 class="h2 text-center">Subsections</h2>  */}}
   {{ with .Sections }}
-    {{ partial "comps/bs-cards.html" . }}
+
   {{ end }}
 {{ end }}
