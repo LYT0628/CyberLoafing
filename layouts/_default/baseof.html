@@ -3,6 +3,7 @@
 <head>
  {{ partial "hugolib/meta.html" (dict "title" "CyberLoafing") }}
  {{ partial "hugolib/bootstrap_css.html" "5.3.2" }}
+ {{ partial "hugolib/build_scss.html" "scss/index.scss" }}
 </head>
 
 <body>
@@ -11,7 +12,6 @@
 {{ end }}
 
 {{ block "body" . }}{{ end }}
-
 
 {{ block "footer" . }}
  {{ partial "components/footer.html" dict }} 

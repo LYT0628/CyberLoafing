@@ -9,7 +9,6 @@
       "fuse.js": "project"
     }
   },
-  "dependencies": {},
   "description": "None",
   "devDependencies": {
     "fuse.js": "^6.6.2"

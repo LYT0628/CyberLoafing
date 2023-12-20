@@ -5,12 +5,28 @@
 {{ $default_logo := partial "hugolib/get_tpl.html" "image/logo.svg.tpl" }}
 {{ $logo_url := $.logo_url | default $default_logo.Permalink | relLangURL}}
 
-<nav>
-  <div>
-    <a href="{{ $logo_link }}">
-      <img src="{{$logo_url}}" alt="Home" width="40" height="32">
+{{/*  navbar  */}}
+<nav class="navbar navbar-expand-lg 
+            navbar-light bg-light">
+  
+  {{/*  container  */}}
+  <div class="container-fluid">
+    {{/*  Logo  */}}
+    <a href="{{ $logo_link }}" class="navbar-brand">
+      <img src="{{$logo_url}}" class="card-img-top" 
+          alt="Home" width="125" height="60">
     </a >
-    {{ partial "components/menu.html" (dict "menu" site.Menus.main)  }}
+    {{/*  toggler button  */}}
+    <button class="navbar-toggler" data-bs-target="#nav_menu"
+            data-bs-toggle="collapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    {{/*  menu  */}}
+    <div class="collapse navbar-collapse" id="nav_menu">
+      {{ partial "components/menu.html" (dict "menu" site.Menus.main)  }}
+    </div>
+  
 
   </div>
 </nav>

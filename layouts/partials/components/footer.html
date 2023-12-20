@@ -3,27 +3,28 @@
 
 
 
-<footer >
-  <div >
-    <div >
-      <div >
+<footer class="bg-dark text-light text-center text-lg-start mt-5">
+  <div class="container p-4">
+    {{/*  logo and Link */}}
+    <div class="row">
+      <div class="col-md-3 col-lg-9 mb-4">
         <a  href="{{$logo_link}}">
           <img  src="{{$logo_url}}" style="width:72px;height:72px;">
         </a>
+        <!--// TODO: Footer Menu-->
+        <div>
+          {{ partial "components/menu.html" (dict "menu" site.Menus.footer) }}
+        </div>
       </div>
-{{ partial "components/menu.html" (dict "menu" site.Menus.footer) }}
-
-
-{{ partial "components/topics.html" . }}
-
     </div>
-
-<div>
-    <p >
-      {{site.Params.copyright | markdownify }}
-    </p>
+    {{/*  copyright  */}}
+    <div  class="row" >
+      {{ partial "components/signature.html" . }}
       {{ partial "components/moyu_time.html" . }}
+      {{ partial "components/copyright.html" . }}
+      {{ partial "components/power.html" . }}
+  </div>
+  </div>
 
-</div>
   </div>
 </footer> 

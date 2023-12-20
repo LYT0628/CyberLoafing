@@ -1,10 +1,11 @@
+{{/*  $ 指向上级菜单  */}}
 {{ if $.HasChildren }}
-  <ul >
+  <ul class="dropdown-menu">
 {{ range $.Children }}
-      <li>
-        <a  href="{{.URL}}">{{.Name}}</a>
+      <li  class="nav-item">
+        <a href="{{.URL}}" class="nav-link" >{{.Name}}</a >
         {{ partial "components/submenu.html" . }}
-      </li>
+      </li >
 {{ end }}
   </ul>
 {{ end }}
