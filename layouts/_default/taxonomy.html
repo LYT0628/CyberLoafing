@@ -1,0 +1,22 @@
+{{define "body"}} 
+<main>
+  <div class="mx-3">
+    {{ if .Title }}
+      <h2 class="display-2 text-center">{{.Title}}</h2>
+    {{ end }}
+    <div class="text-center lead text-muted ">
+      {{.Content}}
+    </div>
+  </div>
+
+
+{{ partial "comps/bs-subsections.html" . }}
+
+{{ partial "comps/bs-pages.html" . }}
+<div class="mx-auto" style="width: 200px;">
+  {{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
+</div>
+
+</main>
+{{end}}
+

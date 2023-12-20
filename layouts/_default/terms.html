@@ -1,0 +1,14 @@
+{{/*  for terms in taxonomy, for example tags in /tag  */}}
+{{ define "body" }}
+<main>
+  <h1 class="text-center mb-5"> {{ partial "hugolib/title.html" . }}</h1>
+
+  <div class="text-center border-top p-3">{{ .Content }}</div>
+  {{ with .Data.Terms.Alphabetical }}
+      {{/*  {{ range . }}
+        {{ partial "components/sect-card.html" .Page }}
+      {{ end }}  */}}
+      {{ partial "components/sect-card-list.html" . }}
+  {{ end }}
+</main>
+{{ end }}
