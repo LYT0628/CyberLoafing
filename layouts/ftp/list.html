@@ -1,0 +1,18 @@
+{{ define "header" }}<hr>{{ end }}
+{{ define "footer" }}<hr>{{ end }}
+
+{{ define "body" }}
+  <h1>{{ partial "hugolib/title.html" . }}</h1>
+  <hr>
+  <ul class="ms-3">
+      <li><a href="..">../</a><hr></li>
+
+      {{ range (partial "hugolib/sections.html" .) }}
+        <li> <a href="{{.Permalink}}">{{ partial "hugolib/title.html" . }}</a></li>
+      {{ end }}
+      <li><hr></li>
+      {{ range $.Resources }}
+        <li> <a href="{{.Permalink}}">{{.Title}}</a></li>
+      {{ end }}
+  </ul>
+{{ end }}

@@ -18,6 +18,7 @@
 {{ block "footer" . }}
  {{ partial "components/footer.html" dict }} 
 {{ end }}
+
 {{ if not hugo.IsProduction }}
   {{ partial "debug/debug.html" (dict "context" .)}}
   {{ partial "console" .Params }}
