@@ -1,0 +1,2 @@
+{{$page := .}}
+{{ return $page.Summary | default $page.Description | default $page.Content |default ""}}

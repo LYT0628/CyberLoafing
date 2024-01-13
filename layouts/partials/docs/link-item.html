@@ -1,0 +1,13 @@
+{{$item := $.item}}
+{{$current_page := $.current_page }}
+
+{{$active := ""}}
+{{ if eq $current_page $item }}
+  {{$active = "text-success"}}
+{{ end }}
+
+<li>
+  <a href="{{$item.Permalink}}" class="bd-links-link d-inline-block rounded {{$active}}">
+    {{ partial "utils/title.html" $item }}
+  </a>
+</li>

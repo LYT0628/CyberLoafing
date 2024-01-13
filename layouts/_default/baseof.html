@@ -2,21 +2,21 @@
 <html lang="zh-CN">
 <head>
  {{ partial "hugolib/meta.html" (dict "title" "CyberLoafing") }}
- {{ partial "hugolib/bootstrap_css.html" "5.3.2" }}
+ {{/*  {{ partial "hugolib/bootstrap_css.html" "5.3.2" }}  */}}
  {{ partial "hugolib/build_scss.html" "scss/index.scss" }}
 </head>
 
 <body>
 
 {{ block "header" . }}
-  {{ partial "components/header.html" (dict "logo_url" site.Params.logo) }}
+  {{ partial "menu/header.html" (dict "logo_url" site.Params.logo) }}
 {{ end }}
 
 {{ block "body" . }}{{ end }}
 
 
 {{ block "footer" . }}
- {{ partial "components/footer.html" dict }} 
+ {{ partial "menu/footer.html" dict }} 
 {{ end }}
 
 {{ if not hugo.IsProduction }}
@@ -25,6 +25,7 @@
 {{ end }}
 
 {{ partial "hugolib/bootstrap_js" "5.3.2" }}
+{{ partial "hugolib/build_js.html" "js/index.js" }}
 {{ partial "hugolib/jquery" "3.7.0" }}
 </body>
 </html> 

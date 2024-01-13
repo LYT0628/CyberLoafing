@@ -1,0 +1,60 @@
+{{ $paginator := $}}
+{{$current_pager_idx := $paginator.PageNumber}}
+{{$current_page_url := $paginator.URL}}
+{{$total_pages := $paginator.TotalPages}}
+{{$has_pre := $paginator.HasPrev}}
+{{$pre_pager := $paginator.Prev}}
+{{$has_next := $paginator.HasNext}}
+{{$next_pager := $paginator.Next}}
+{{$first_pager := $paginator.First}}
+{{$last_pager := $paginator.Last}}
+
+{{ $pagers := $.Pagers }}
+
+<nav aria-label="Page navigation ">
+  <ul class="pagination pagination-lg ustify-content-end">
+    {{/*  起始分页  */}}
+    {{$to_first_pager_attrs := "page-item"}}
+    {{ if eq $current_pager_idx 1 }}
+      {{$to_first_pager_attrs = print $to_first_pager_attrs " " "disabled"}}
+    {{ end }}
+    <li class="${{$to_first_pager_attrs}}">
+      <a href="{{$first_pager.URL}}" class="page-link"><<</a>
+    </li>      
+
+    {{/*  上一页  */}}
+    {{ if $has_pre }}
+      <li class="page-item">
+        <a class="page-link" href="{{$pre_pager.URL}}"><</a>
+      </li>      
+    {{ end }}
+
+
+    {{/*  {{ range $first_pager.Pages }}
+    <li class="page-item"><a class="page-link" href="{{.Permalink}}">{{ partial "hugolib/title.html" . }}</a></li>
+    {{end}}  */}}
+
+{{/*  遍历页  */}}
+    {{ range $idx, $pager := $pagers }}
+      <li class="page-item "><a class="page-link text-success" href="{{.URL}}">{{ add $idx 1 }}</a></li>
+    {{ end }}
+
+{{/*  下一页  */}}
+    {{ if $has_next }}
+    <li class="page-item">
+      <a class="page-link" href="{{$next_pager.URL}}">></a>
+    </li>      
+  {{ end }}
+
+
+  {{/*  末分页  */}}
+  {{$to_last_pager_attrs := "page-item"}}
+  {{ if ge $current_pager_idx $total_pages  }}
+    {{$to_last_pager_attrs = print $to_last_pager_attrs " " "disabled"}}
+  {{ end }}
+  <li class="${{$to_last_pager_attrs}}">
+    <a href="{{$last_pager.URL}}" class="page-link">>></a>
+  </li>
+
+  </ul>
+</nav>

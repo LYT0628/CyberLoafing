@@ -1,0 +1,9 @@
+
+{{$entry :=.}}
+{{ if eq  ( $entry.Title)  "docs"}}
+{{else if eq  ( $entry.Parent.Title)  "docs"}}
+{{else}}
+  {{$entry = (partial "docs/doc-entry.html" $entry.Parent )}}
+{{end}}
+
+{{ return $entry }}

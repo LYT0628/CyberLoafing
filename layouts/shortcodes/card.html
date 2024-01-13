@@ -1,0 +1,32 @@
+{{$bg_type := .Get "bg-type" }}
+{{$text_type := .Get "text-type"}}
+{{$border_type := .Get "border-type"}}
+
+
+{{$title := .Get "title" | default "" }}
+{{$head := .Get "head" | default "" }}
+{{$width := .Get "width" | default "18" }}
+{{$inner := .Inner | markdownify}}
+
+{{$text_attr := ""}}
+{{ if  $text_type}}
+  {{$text_attr = print "text-" $text_type }}
+{{ end }}
+
+{{$border_attr := ""}}
+{{ if $border_type }}
+  {{$border_attr = print "border-" $border_type}}
+{{ end }}
+
+{{$bg_attr := ""}}
+{{ if $bg_type }}
+  {{$bg_attr = print "text-bg-" $bg_type}}
+{{ end }}
+
+<div class="card {{$bg_attr}} mb-3 {{$border_attr}}" style="max-width: {{$width}}rem;">
+  <div class="card-header">{{$head}}</div>
+  <div class="card-body {{$text_attr}}" >
+    <h5 class="card-title">{{$title}}</h5>
+    <p class="card-text">{{$inner}}</p>
+  </div>
+</div>

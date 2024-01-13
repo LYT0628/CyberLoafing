@@ -1,0 +1,9 @@
+
+{{$pages := .RegularPages}}
+{{range .Sections}}
+  {{$pages = append $pages .RegularPages}}
+{{end}}
+
+{{$pages = sort $pages "Date" "desc" }}
+{{ $paginator := .Paginate $pages }}
+{{ return $paginator }}

@@ -1,0 +1,21 @@
+{{$type := .Get "type" | default "danger"}}
+{{$dismissible := .Get "dismissible" | default false }}
+{{$link:= .Get "link"}}
+{{$link_text := .Get "link-text"}}
+{{$inner := .Inner | markdownify}}
+
+{{$attrs := "alert"}}
+{{$attrs = print $attrs " alert-" $type }}
+
+{{ if $dismissible }}
+  {{$attrs = print $attrs " alert-dismissible"}}
+{{ end }}
+
+
+<div class="{{ $attrs }} " role="alert">
+  <div>{{$inner}}
+  </div>
+  {{ if $dismissible }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  {{ end }}
+</div>

@@ -14,7 +14,12 @@
 
 {{ partial "comps/bs-pages.html" . }}
 <div class="mx-auto" style="width: 200px;">
-  {{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
+  {{/*  {{ template "_internal/pagination.html" (dict "page" . 
+                                          "format" "terse") }}  */}}
+
+
+{{ $paginator := partial "utils/paginator.html" .}}
+{{ partial "comps/bs-pagination.html" $paginator  }}
 </div>
 
 </main>

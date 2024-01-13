@@ -1,0 +1,15 @@
+{{$type := .Get "type" | default "danger"}}
+{{$title := .Get "title" | default "" }}
+{{$inner := .Inner | markdownify}}
+
+{{$attrs := "alert"}}
+{{$attrs = print $attrs " alert-" $type }}
+
+
+
+<div class="{{ $attrs }} " role="alert">
+    <h4 class="alert-heading">{{$title | markdownify}}</h4>
+    <hr/>
+    <p>{{$inner | markdownify }}</p>
+</div>
+

@@ -1,0 +1,14 @@
+<div class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
+  <div class="row justify-content-around"> 
+    <aside class="bd-sidebar col-2"> 
+      {{ partial "docs/docs-nav.html" $ }}
+    </aside>
+
+    <main class="bd-main order-1 col-10">
+      <div class="text-center">
+        {{$.Content | markdownify}}
+      </div>
+      </main>
+  </div>
+
+</div>

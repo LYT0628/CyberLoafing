@@ -1,0 +1,14 @@
+{{$type := .Get "type" | default "danger"}}
+{{$link:= .Get "link"}}
+{{$link_text := .Get "link-text"}}
+{{$inner := .Inner | markdownify}}
+
+{{$attrs := "alert"}}
+{{$attrs = print $attrs " alert-" $type }}
+
+
+<div class="{{ $attrs }} " role="alert">
+  {{$inner}}
+  <a href="{{$link}}" class="alert-link">{{$link_text}}</a>
+</div>
+

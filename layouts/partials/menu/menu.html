@@ -1,0 +1,29 @@
+{{ $menu := $.menu }}
+{{ $button := $.button }}
+
+  {{/*  menu  */}}
+  <ul class="navbar-nav
+            me-auto mb-2 mb-lg-0">
+{{with $menu }}
+{{/*  $ 永远指向上下文，不受上下文转移语句影响， 但是 . 会受影响  */}}
+{{range .}}
+        {{/*  有子菜单就是 下拉菜单， 本级路径不可用啦， 这要求菜单的层级关系要明显点 */}}
+        {{ if .HasChildren }}
+          <li  class="nav-item dropdown">
+            <button class="btn dropdown-toggle" 
+                    data-bs-toggle="dropdown" aria-expanded="false">
+              {{.Name}}
+            </button>
+            {{ partial "menu/submenu.html" . }}
+          </li >
+        {{ else }}
+        {{/*  没有子菜单就是菜单项  */}}
+          <li  class="nav-item ">
+            <a href="{{.URL}}" class="nav-link" >{{.Name}}</a >
+            {{ partial "menu/submenu.html" . }}
+          </li >
+        {{ end }}
+
+{{end}}
+{{end}}
+  </ul>

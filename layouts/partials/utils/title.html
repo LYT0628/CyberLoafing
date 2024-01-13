@@ -1,0 +1,5 @@
+{{/*  if context is a page, return the title param of page  */}}
+{{/*  if context is a dict, need a Title key to show  */}}
+{{/*  default   .File.Path | path.Dir | path.Base*/}}
+{{ $title := $.Title | default  (.File.Path | path.Dir | path.Base) }}
+{{return $title}}
